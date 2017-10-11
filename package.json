@@ -1,0 +1,27 @@
+{
+  "name": "json-omit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hlefebvr/json-manipulation.git"
+  },
+  "keywords": [
+    "json",
+    "omit"
+  ],
+  "author": "Henri LEFEBVRE",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hlefebvr/json-manipulation/issues"
+  },
+  "homepage": "https://github.com/hlefebvr/json-manipulation#readme",
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "lodash": "^4.17.4"
+  }
+}
