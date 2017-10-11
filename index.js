@@ -16,7 +16,7 @@ function recursiveDelete(attr, attributePath, depth = 0) {
         }
     }
 }
-function omit(object, paths){
+module.exports = function omit(object, paths){
     let newObject = _.cloneDeep(object);
     return new Promise(
         (resolve, reject) => bluebird
