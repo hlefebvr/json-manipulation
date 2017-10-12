@@ -16,12 +16,13 @@ function recursiveDelete(attr, attributePath, depth = 0) {
         }
     }
 }
-module.exports = function omit(object, paths){
+
+function omit(object, paths){
     let newObject = _.cloneDeep(object);
-    return new Promise(
-        (resolve, reject) => bluebird
-        .each(paths, (path) => recursiveDelete({ x:newObject }, path.split('.')))
-        .then(() => resolve(newObject))
-        .catch(err => reject(err))
-    );
+    paths.forEach((path) => {
+        recursiveDelete({ x:newObject }, path.split('.'));
+    });
+    return newObject;
 }
+
+module.exports = omit;

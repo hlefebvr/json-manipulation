@@ -1,7 +1,7 @@
 {
   "name": "json-omit",
   "version": "1.0.0",
-  "description": "",
+  "description": "Small module which enables to manipulate json structures.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -23,5 +23,6 @@
   "dependencies": {
     "bluebird": "^3.5.1",
     "lodash": "^4.17.4"
-  }
+  },
+  "devDependencies": {}
 }

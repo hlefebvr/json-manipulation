@@ -22,19 +22,19 @@ const json = {
 
 // Removing first level attribute
 let clone = _.cloneDeep(json);
-omit(clone, ['attr0']).then(formated => console.log('Removing first level attribute' + JSON.stringify(formated)));
+console.log( omit(clone, ['attr0']) );
 
 // Removing nested attribute
 clone = _.cloneDeep(json);
-omit(clone, ['attr1.nestedAttr3.deepNestedAttr2']).then(formated => console.log('Removing nested attribute' + JSON.stringify(formated)));
+console.log( omit(clone, ['attr1.nestedAttr3.deepNestedAttr2']) );
 
 // Removing nested array
 clone = _.cloneDeep(json);
-omit(clone, ['attr1.nestedAttr3.deepNestedArray']).then(formated => console.log('Removing nested array' + JSON.stringify(formated)));
+console.log( omit(clone, ['attr1.nestedAttr3.deepNestedArray']) );
 
 // Removing attribute in every element of an array
 clone = _.cloneDeep(json);
-omit(clone, ['attr1.nestedAttr3.deepNestedArray.arrayAttr2']).then(formated => console.log('Removing attribute in every element of an array' + JSON.stringify(formated)));
+console.log( omit(clone, ['attr1.nestedAttr3.deepNestedArray.arrayAttr2']) );
 
 // Editing array
 const array = [
@@ -45,4 +45,4 @@ const array = [
 
 // Removing column of array
 clone = _.cloneDeep(array);
-omit(clone, ['attr1']).then(formated => console.log('Removing column of array' + JSON.stringify(formated)));
+console.log( omit(clone, ['attr1']) );
