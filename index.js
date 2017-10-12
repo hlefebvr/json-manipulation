@@ -1,4 +1,3 @@
-const bluebird = require('bluebird');
 const _ = require('lodash');
 
 function recursiveDelete(attr, attributePath, depth = 0) {
