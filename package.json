@@ -1,6 +1,6 @@
 {
   "name": "json-omit",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Small module which enables to manipulate json structures.",
   "main": "index.js",
   "scripts": {
