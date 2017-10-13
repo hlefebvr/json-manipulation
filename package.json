@@ -21,7 +21,6 @@
   },
   "homepage": "https://github.com/hlefebvr/json-manipulation#readme",
   "dependencies": {
-    "bluebird": "^3.5.1",
     "lodash": "^4.17.4"
   },
   "devDependencies": {}
