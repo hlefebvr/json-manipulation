@@ -58,3 +58,7 @@ Will give :
 ## What you cannot (yet) do : 
 
 - Remove inside array attributes in specific row (ex: people.1.age)
+
+# Running test
+
+Run ``` npm test ```
