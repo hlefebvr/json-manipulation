@@ -18,6 +18,7 @@ function recursiveDelete(attr, attributePath, depth = 0) {
 
 function omit(object, paths){
     let newObject = _.cloneDeep(object);
+    if (!Array.isArray(paths)) paths = [paths];
     paths.forEach((path) => {
         recursiveDelete({ x:newObject }, path.split('.'));
     });
