@@ -1,64 +1,123 @@
 # json-omit
 
+Json manipulation node module.
 
-Small module which enables to manipulate json structures. 
+Available functions :
 
-## What you can do :
-
-- Remove json attributes (including nested ones)
-- Remove inside array attributes in every element
+- `omit(originialObject, ...paths)` : copies the `originalObject` and deletes attributes specified in `...paths` before returning the result
+- `clone(originalObject)` : retruns a **deep** copy of the `originalObject`
 
 ## Examples
 
-- Removing nested attribute
-```node
-const json = {
-    firstname: 'John',
-    lastname: 'Doe',
-    address: {
-        country: 'FR',
-        postalCode: 60200,
-    },
-};
+```javascript
+const { omit, clone } = require("json-omit");
+```
 
-const changed = omit(json, ['address.postalCode']);
+### omit(originalObject, ...paths)
 
-/*
-Will give : 
-{
-    firstname: 'John',
-    lastname: 'Doe',
-    address: {
-        country: 'FR',
+omit attributes or nested attributes :
+
+```javascript
+const orignialObject = {
+  depth0: {
+    depth1: {
+      attr1: "keep this attribute",
+      attr2: { value: "remove me" },
+      attr3: "remove me as well"
     }
-}
-*/
-```
-- Remove inside array attributes in every element
-```node
-const json = {
-    people: [
-        { name: 'John', age: 24 },
-        { name: 'Doe', age: 27 },
-    ],
+  },
+  someOtherAttribute: "I should be removed"
 };
 
-const changed = omit(json, [people.age]);
+const omitted = omit(
+  originalObject,
+  "depth0.depth1.attr2",
+  "depth0.depth1.attr3",
+  "someOtherAttribute"
+);
+
+console.log(omitted);
 /*
-Will give :
 {
-    people: [
-        { name: 'John' },
-        { name: 'Doe'  },
-    ],
+  depth0: {
+    depth1: {
+      attr1: "keep this attribute"
+    }
+  }
 }
 */
 ```
 
-## What you cannot (yet) do : 
+omit attribute or nested attribute in every row of array
 
-- Remove inside array attributes in specific row (ex: people.1.age)
+```javascript
+const originalObject = {
+  history: [
+    { timestamp: "1234567", value: "example1" },
+    { timestamp: "1234568", value: "example1", extraValue: true },
+    { timestamp: "1234569", value: "example1" },
+    { timestamp: "1234570", value: "example1" }
+  ]
+};
 
-# Running test
+const omitted = omit(originalObject, "history.value");
 
-Run ``` npm test ```
+console.log(omitted);
+/*
+{
+  history: [
+    { timestamp: "1234567" },
+    { timestamp: "1234568" },
+    { timestamp: "1234569" },
+    { timestamp: "1234570" }
+  ]
+}
+*/
+```
+
+omit attribute or nested attribute in specific row of array
+
+```javascript
+const originalObject = {
+  history: [
+    { timestamp: "1234567", value: "example1" },
+    { timestamp: "1234568", value: "example1" },
+    { timestamp: "1234569", value: "example1" },
+    { timestamp: "1234570", value: "example1" }
+  ]
+};
+
+const omitted = omit(originalObject, "history.2.value");
+
+console.log(omitted);
+/*
+{
+  history: [
+    { timestamp: "1234567", value: "example1" },
+    { timestamp: "1234568", value: "example1" },
+    { timestamp: "1234569" },
+    { timestamp: "1234570", value: "example1" }
+  ]
+};
+*/
+```
+
+### clone(originalObject)
+
+```javascript
+const originalObject = {
+  depth0: { depth1: { depth2: { value: "nested value" } } }
+};
+const copiedObject = clone(originalObject);
+
+copiedObject.depth0.depth1.depth2.value = "changed nested value";
+
+console.log(originalObject.depth0.depth1.depth2.value); // outputs "nested value"
+console.log(copiedObject.depth0.depth1.depth2.value); // outputs "changed nested value"
+```
+
+## Contributing
+
+- Contributing is **very welcomed** via pull requests or creating issues
+- If you make a pull request, be sure to write/adapt a test file with respect to your specific changes
+- Running tests is done via mocha and npm, run them like so : `npm t`
