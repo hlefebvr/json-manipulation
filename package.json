@@ -2,9 +2,9 @@
   "name": "json-omit",
   "version": "2.1.0",
   "description": "Small module which enables to manipulate json structures.",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha ./src/tests/*.test.js"
   },
   "repository": {
     "type": "git",
@@ -12,7 +12,11 @@
   },
   "keywords": [
     "json",
-    "omit"
+    "omit",
+    "json-omit",
+    "delete",
+    "attribute",
+    "json"
   ],
   "author": "Henri LEFEBVRE",
   "license": "ISC",
@@ -20,11 +24,17 @@
     "url": "https://github.com/hlefebvr/json-manipulation/issues"
   },
   "homepage": "https://github.com/hlefebvr/json-manipulation#readme",
-  "dependencies": {
-    "lodash": "^4.17.4"
-  },
   "devDependencies": {
     "chai": "^4.1.2",
-    "mocha": "^4.0.1"
+    "mocha": "^4.0.1",
+    "eslint": "^5.1.0",
+    "eslint-config-airbnb-base": "^11.3.1",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-mocha": "^4.11.0",
+    "eslint-plugin-monorepo": "^0.2.0",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1"
   }
 }
