@@ -1,6 +1,11 @@
-# json-omit
+# json-omit : JSON manipulation node module
 
-Json manipulation node module.
+![version](https://img.shields.io/npm/v/json-omit.svg)
+![npm downloads](https://img.shields.io/npm/dm/json-omit.svg)
+![licence](https://img.shields.io/github/license/hlefebvr/json-manipulation.svg)
+![maintained](https://img.shields.io/badge/Maintained_%3F-yes-green.svg)
+![open issues](https://img.shields.io/github/issues-raw/hlefebvr/json-manipulation.svg)
+![open issues](https://img.shields.io/github/issues-closed/hlefebvr/json-manipulation.svg)
 
 Available functions :
 
