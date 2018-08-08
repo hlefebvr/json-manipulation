@@ -7,6 +7,8 @@
 ![open issues](https://img.shields.io/github/issues-raw/hlefebvr/json-manipulation.svg)
 ![open issues](https://img.shields.io/github/issues-closed/hlefebvr/json-manipulation.svg)
 
+Install : `npm install --save json-omit`
+
 Available functions :
 
 - `omit(originialObject, ...paths)` : copies the `originalObject` and deletes attributes specified in `...paths` before returning the result
